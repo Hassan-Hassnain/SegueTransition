@@ -17,14 +17,14 @@ class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 2.0
+        return 1.0
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         // 1
         guard let fromVC = transitionContext.viewController(forKey: .from) as? ViewControllerTwo,
             let toVC = transitionContext.viewController(forKey: .to) as? ViewControllerOne,
-            let snapshotView = toVC.imageVu.snapshotView(afterScreenUpdates: false)  // snapShotView is taget view in which sending view will transform
+            let snapshotView = toVC.cell.contentImageView.snapshotView(afterScreenUpdates: false)  // snapShotView is taget view in which sending view will transform
             else {
                 return
         }
@@ -34,9 +34,10 @@ class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         
         // 2
         let containerView = transitionContext.containerView
-        //      containerView.insertSubview(toVC.view, at: 0)
         containerView.addSubview(snapshotView)
         fromVC.view.isHidden = true
+        toVC.cell.contentImageView.isHidden = true
+        
         
         // 3
         let duration = transitionDuration(using: transitionContext)
@@ -51,6 +52,7 @@ class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
                         snapshotView.layoutIfNeeded()
         }) { _ in
             fromVC.view.isHidden = false
+            toVC.cell.contentImageView.isHidden = false
             snapshotView.removeFromSuperview()
             if transitionContext.transitionWasCancelled {
                 toVC.view.removeFromSuperview()

@@ -10,6 +10,7 @@ import UIKit
 
 class ViewControllerTwo: UIViewController {
 
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var imagevu: UIImageView!
     
     var image: UIImage?
@@ -18,6 +19,7 @@ class ViewControllerTwo: UIViewController {
         super.viewDidLoad()
 
         self.imagevu.image = image
+        self.closeButton.layer.cornerRadius = closeButton.frame.size.width/2
     }
     
     @IBAction func closeButton(_ sender: UIButton) {

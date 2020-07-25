@@ -17,12 +17,12 @@ class PresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 2.0
+        return 1.0
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let fromVC = transitionContext.viewController(forKey: .from),
-            let toVC = transitionContext.viewController(forKey: .to),
+        guard let fromVC = transitionContext.viewController(forKey: .from),  //ViewControllerOne
+            let toVC = transitionContext.viewController(forKey: .to),   //ViewControllerTwo
             let snapshotView = toVC.view.snapshotView(afterScreenUpdates: true)
             else {return}
         

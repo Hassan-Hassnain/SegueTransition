@@ -18,6 +18,7 @@
 		846BF9A324CB96FA00AE0975 /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BF9A224CB96FA00AE0975 /* ViewControllerTwo.swift */; };
 		84C2D58624CC59BC0064552B /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2D58524CC59BC0064552B /* PresentAnimation.swift */; };
 		84C2D58824CC5D8C0064552B /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2D58724CC5D8C0064552B /* DismissAnimation.swift */; };
+		84C2D58A24CC67F70064552B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2D58924CC67F70064552B /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		846BF9A224CB96FA00AE0975 /* ViewControllerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
 		84C2D58524CC59BC0064552B /* PresentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
 		84C2D58724CC5D8C0064552B /* DismissAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
+		84C2D58924CC67F70064552B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				846BF98924CB951400AE0975 /* SegueTransition */,
-				84C2D58424CC598B0064552B /* AnimationController */,
 				846BF98824CB951400AE0975 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,10 +72,12 @@
 				846BF98C24CB951400AE0975 /* SceneDelegate.swift */,
 				846BF98E24CB951400AE0975 /* ViewControllerOne.swift */,
 				846BF9A224CB96FA00AE0975 /* ViewControllerTwo.swift */,
+				84C2D58924CC67F70064552B /* TableViewCell.swift */,
 				846BF99024CB951400AE0975 /* Main.storyboard */,
 				846BF99324CB951500AE0975 /* Assets.xcassets */,
 				846BF99524CB951500AE0975 /* LaunchScreen.storyboard */,
 				846BF99824CB951500AE0975 /* Info.plist */,
+				84C2D58424CC598B0064552B /* AnimationController */,
 				84C2D58324CC59230064552B /* Segue_TransitionClass */,
 			);
 			path = SegueTransition;
@@ -172,6 +175,7 @@
 				846BF98F24CB951400AE0975 /* ViewControllerOne.swift in Sources */,
 				846BF9A124CB958C00AE0975 /* FadeTransition.swift in Sources */,
 				846BF98B24CB951400AE0975 /* AppDelegate.swift in Sources */,
+				84C2D58A24CC67F70064552B /* TableViewCell.swift in Sources */,
 				846BF98D24CB951400AE0975 /* SceneDelegate.swift in Sources */,
 				846BF99F24CB954200AE0975 /* ScaleTransition.swift in Sources */,
 				84C2D58824CC5D8C0064552B /* DismissAnimation.swift in Sources */,
