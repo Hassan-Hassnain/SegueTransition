@@ -52,13 +52,11 @@ extension ViewControllerOne: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.cell = tableView.cellForRow(at: indexPath) as? TableViewCell
-//        cell.animateContent()
         self.startFrame = cell.convert(cell.contentImageView.frame, to: nil)
         tableView.deselectRow(at: indexPath, animated: true)
 
         guard let vc = storyboard?.instantiateViewController(identifier: "ViewControllerTwo") as? ViewControllerTwo else {return}
         vc.image = self.imageVu.image
-//        self.present(vc, animated: true, completion: nil)
         performSegue(withIdentifier: "ShowDetails", sender: self.imageVu)
     }
     

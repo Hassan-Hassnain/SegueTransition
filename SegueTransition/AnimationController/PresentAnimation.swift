@@ -17,7 +17,7 @@ class PresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 1.0
+        return 0.8
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -41,8 +41,8 @@ class PresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         
         UIView.animate(withDuration: duration,
                        delay: 0.0,
-                       usingSpringWithDamping: 0.6,
-                       initialSpringVelocity: 0.2,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 0.1,
                        options: .curveEaseOut,
                        animations: {
                         snapshotView.frame = finalFrame
