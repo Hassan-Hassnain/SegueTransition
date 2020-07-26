@@ -17,7 +17,7 @@ class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.8
+        return animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -29,7 +29,8 @@ class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
                 return
         }
         
-        snapshotView.layer.cornerRadius = 0
+        snapshotView.layer.cornerRadius = 30
+        snapshotView.frame = fromVC.imagevu.frame
         snapshotView.layer.masksToBounds = true
         
         // 2
@@ -44,8 +45,8 @@ class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         
         UIView.animate(withDuration: duration,
                        delay: 0.0,
-                       usingSpringWithDamping: 0.8,
-                       initialSpringVelocity: 0.1,
+                       usingSpringWithDamping: springDamping,
+                       initialSpringVelocity: initialVelocity,
                        options: .curveEaseOut,
                        animations: {
                         snapshotView.frame = self.destinationFrame
@@ -59,10 +60,12 @@ class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
             }
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
-        
-        
     }
     
-    
-    
 }
+
+
+
+
+
+

@@ -8,6 +8,10 @@
 
 import UIKit
 
+let initialVelocity: CGFloat = 0.01
+let springDamping: CGFloat = 0.7
+let animationDuration = 1.0
+
 class PresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     
     private let originFrame: CGRect
@@ -17,12 +21,12 @@ class PresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.8
+        return animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let fromVC = transitionContext.viewController(forKey: .from),  //ViewControllerOne
-            let toVC = transitionContext.viewController(forKey: .to),   //ViewControllerTwo
+        guard let fromVC = transitionContext.viewController(forKey: .from) as? ViewControllerOne,  //ViewControllerOne
+            let toVC = transitionContext.viewController(forKey: .to) as? ViewControllerTwo,   //ViewControllerTwo
             let snapshotView = toVC.view.snapshotView(afterScreenUpdates: true)
             else {return}
         
@@ -33,29 +37,39 @@ class PresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         snapshotView.layer.cornerRadius = 20
         snapshotView.layer.masksToBounds = true
         
-        containerView.addSubview(toVC.view)
-        containerView.addSubview(snapshotView)
-        toVC.view.isHidden = true
-        
-        let duration = transitionDuration(using: transitionContext)
-        
-        UIView.animate(withDuration: duration,
-                       delay: 0.0,
-                       usingSpringWithDamping: 0.8,
-                       initialSpringVelocity: 0.1,
-                       options: .curveEaseOut,
-                       animations: {
-                        snapshotView.frame = finalFrame
-                        snapshotView.layoutIfNeeded()
-        }) { (finished) in
-            toVC.view.isHidden = false
-            snapshotView.removeFromSuperview()
-            fromVC.view.layer.transform = CATransform3DIdentity
+        fromVC.cell.showAnimation {  //This animation will push the table view cell
+            containerView.addSubview(toVC.view)
+            containerView.addSubview(snapshotView)
+            toVC.view.isHidden = true
             
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            let duration = self.transitionDuration(using: transitionContext)
+            
+            UIView.animate(withDuration: duration,   ///this animation will perform during transition to ViewControllerTwo
+                delay: 0.0,
+                usingSpringWithDamping: springDamping,
+                initialSpringVelocity: initialVelocity,
+                options: .curveEaseInOut,
+                animations: {
+                    snapshotView.frame = finalFrame
+                    snapshotView.layoutIfNeeded()
+            }) { (finished) in
+                toVC.view.isHidden = false
+                snapshotView.removeFromSuperview()
+                fromVC.view.layer.transform = CATransform3DIdentity
+                
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            }
         }
         
+        
+        
+        
+        
+        
+        
+        
     }
+    
     
     
 }

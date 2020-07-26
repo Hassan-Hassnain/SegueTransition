@@ -19,6 +19,7 @@
 		84C2D58624CC59BC0064552B /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2D58524CC59BC0064552B /* PresentAnimation.swift */; };
 		84C2D58824CC5D8C0064552B /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2D58724CC5D8C0064552B /* DismissAnimation.swift */; };
 		84C2D58A24CC67F70064552B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2D58924CC67F70064552B /* TableViewCell.swift */; };
+		84E2FEF924CD9C6300ACD596 /* UIViewTapAnimationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2FEF824CD9C6300ACD596 /* UIViewTapAnimationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		84C2D58524CC59BC0064552B /* PresentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
 		84C2D58724CC5D8C0064552B /* DismissAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
 		84C2D58924CC67F70064552B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		84E2FEF824CD9C6300ACD596 /* UIViewTapAnimationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewTapAnimationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				84C2D58524CC59BC0064552B /* PresentAnimation.swift */,
 				84C2D58724CC5D8C0064552B /* DismissAnimation.swift */,
+				84E2FEF824CD9C6300ACD596 /* UIViewTapAnimationExtension.swift */,
 			);
 			path = AnimationController;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				846BF98B24CB951400AE0975 /* AppDelegate.swift in Sources */,
 				84C2D58A24CC67F70064552B /* TableViewCell.swift in Sources */,
 				846BF98D24CB951400AE0975 /* SceneDelegate.swift in Sources */,
+				84E2FEF924CD9C6300ACD596 /* UIViewTapAnimationExtension.swift in Sources */,
 				846BF99F24CB954200AE0975 /* ScaleTransition.swift in Sources */,
 				84C2D58824CC5D8C0064552B /* DismissAnimation.swift in Sources */,
 				846BF9A324CB96FA00AE0975 /* ViewControllerTwo.swift in Sources */,

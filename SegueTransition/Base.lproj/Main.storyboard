@@ -71,15 +71,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.on.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kNq-U0-eYP">
-                                <rect key="frame" x="20" y="52" width="374" height="433"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.on.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kNq-U0-eYP">
+                                <rect key="frame" x="20" y="52" width="374" height="566"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="428" id="51n-zO-tlc"/>
-                                    <constraint firstAttribute="width" constant="374" id="pWY-f0-ay1"/>
+                                    <constraint firstAttribute="height" constant="561" id="KYR-wp-Wjy"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMT-TQ-cF5">
-                                <rect key="frame" x="348" y="64" width="46" height="46"/>
+                                <rect key="frame" x="338" y="64" width="46" height="46"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="RG3-WV-0s2"/>
@@ -91,8 +90,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjZ-Xx-uaK">
-                                <rect key="frame" x="20" y="490.5" width="374" height="467"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <rect key="frame" x="20" y="623.5" width="374" height="467"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -100,17 +99,15 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kNq-U0-eYP" firstAttribute="top" secondItem="C31-P3-3tx" secondAttribute="top" constant="10.5" id="49x-SB-nUO"/>
-                            <constraint firstItem="hjZ-Xx-uaK" firstAttribute="top" secondItem="kNq-U0-eYP" secondAttribute="bottom" constant="8" id="9Cl-b8-uso"/>
+                            <constraint firstItem="kNq-U0-eYP" firstAttribute="top" secondItem="C31-P3-3tx" secondAttribute="top" constant="10.5" id="5m4-87-GF2"/>
                             <constraint firstItem="hjZ-Xx-uaK" firstAttribute="leading" secondItem="C31-P3-3tx" secondAttribute="leading" constant="20" id="AtR-b1-hhZ"/>
+                            <constraint firstItem="kNq-U0-eYP" firstAttribute="leading" secondItem="C31-P3-3tx" secondAttribute="leading" constant="20" id="DER-q4-hYC"/>
                             <constraint firstItem="C31-P3-3tx" firstAttribute="trailing" secondItem="hjZ-Xx-uaK" secondAttribute="trailing" constant="20" id="EDj-im-iYk"/>
-                            <constraint firstItem="kNq-U0-eYP" firstAttribute="leading" secondItem="C31-P3-3tx" secondAttribute="leading" constant="20" id="H5f-w5-L8R"/>
-                            <constraint firstItem="C31-P3-3tx" firstAttribute="trailing" secondItem="cMT-TQ-cF5" secondAttribute="trailing" constant="20" id="Hxp-Dw-tSk"/>
-                            <constraint firstItem="C31-P3-3tx" firstAttribute="trailing" secondItem="kNq-U0-eYP" secondAttribute="trailing" constant="20" id="LiO-rT-rNo"/>
-                            <constraint firstItem="C31-P3-3tx" firstAttribute="trailing" secondItem="kNq-U0-eYP" secondAttribute="trailing" constant="20" id="Umn-kc-5rk"/>
+                            <constraint firstItem="C31-P3-3tx" firstAttribute="trailing" secondItem="cMT-TQ-cF5" secondAttribute="trailing" constant="30" id="Hxp-Dw-tSk"/>
+                            <constraint firstItem="hjZ-Xx-uaK" firstAttribute="top" secondItem="kNq-U0-eYP" secondAttribute="bottom" constant="8" id="cUm-ZU-cD9"/>
                             <constraint firstItem="C31-P3-3tx" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="hjZ-Xx-uaK" secondAttribute="bottom" constant="351" id="fEB-46-agg"/>
                             <constraint firstItem="cMT-TQ-cF5" firstAttribute="top" secondItem="C31-P3-3tx" secondAttribute="top" constant="20" id="fhQ-zp-Fce"/>
-                            <constraint firstItem="kNq-U0-eYP" firstAttribute="leading" secondItem="C31-P3-3tx" secondAttribute="leading" constant="20" id="i6n-rL-Hhm"/>
+                            <constraint firstItem="C31-P3-3tx" firstAttribute="trailing" secondItem="kNq-U0-eYP" secondAttribute="trailing" constant="20" id="zR3-MX-yDs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C31-P3-3tx"/>
                     </view>

@@ -19,6 +19,7 @@ class ViewControllerTwo: UIViewController {
         super.viewDidLoad()
 
         self.imagevu.image = image
+        self.imagevu.layer.cornerRadius = 30
         self.closeButton.layer.cornerRadius = closeButton.frame.size.width/2
     }
     
