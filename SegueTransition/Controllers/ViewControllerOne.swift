@@ -23,10 +23,6 @@ class ViewControllerOne: UIViewController {
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
     }
     
-    @IBAction func goButton(_ sender: Any) {
-        performSegue(withIdentifier: "ShowDetails", sender: self.imageVu)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ViewControllerTwo,
             let index = sender as? Int
@@ -55,16 +51,9 @@ extension ViewControllerOne: UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.cell = tableView.cellForRow(at: indexPath) as! CustomTableViewCell
         self.startFrame = cell.convert(cell.containerView.frame, to: nil)
-        
-//
-//        guard let vc = storyboard?.instantiateViewController(identifier: "ViewControllerTwo") as? ViewControllerTwo else {return}
-////        vc.image = contents[indexPath.row].image//cell.contentImageView.image
-////        vc.text = contents[indexPath.row].description
-////        print(contents[indexPath.row].description)
         tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: "ShowDetails", sender: indexPath.row)
     }
@@ -84,16 +73,12 @@ extension ViewControllerOne: Scaleable {
 extension ViewControllerOne: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
         return PresentAnimation(originFrame: startFrame)
-        
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissAnimation(destinationFrame: startFrame)
     }
-    
-    
 }
 
 

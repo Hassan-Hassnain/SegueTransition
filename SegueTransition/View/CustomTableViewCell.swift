@@ -34,6 +34,11 @@ class CustomTableViewCell: UITableViewCell {
           super.setSelected(selected, animated: animated)
           
       }
+    func configure(content: Content) {
+        self.smallImageView.image = content.image
+        self.contentImageView.image = content.image
+        self.titleLabel.text = " This is dummy title label for product being presented"
+    }
     
     
 }

@@ -11,13 +11,8 @@ import UIKit
 class ViewControllerTwo: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet var tableView: UITableView!
-    //    @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var imagevu: UIImageView!
-    //    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     
-    var image: UIImage?
-    var text: String = "-"
     var cell = CustomTableViewCell()
     var contents = Content.all
     var index: Int = 1
@@ -49,10 +44,7 @@ class ViewControllerTwo: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as! CustomTableViewCell
-            cell.contentImageView.image = contents[index].image
-            cell.smallImageView.image = contents[index].image
-            cell.titleLabel.text = " This is dummy title label for product being presented"
-            self.imagevu = cell.contentImageView
+            cell.configure(content: contents[index])
             self.cell = cell
             updateView(cell)
             
@@ -80,36 +72,16 @@ class ViewControllerTwo: UIViewController, UITableViewDelegate, UITableViewDataS
         receivedView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: 0).isActive = true
         
         
-        let button:UIButton = UIButton(frame: CGRect(x: 315, y: 25, width: 50, height: 50))
-        button.imageView?.image = #imageLiteral(resourceName: "download-1")
-        button.setTitle("X", for: .normal)
+        let button:UIButton = UIButton(frame: CGRect(x: 355, y: 15, width: 50, height: 50))
+        button.setImage(#imageLiteral(resourceName: "download-1"), for: .normal)
         button.addTarget(self, action: #selector(closeButton), for: .touchUpInside)
         button.tag = 22;
+        button.layer.cornerRadius = 25
+        button.clipsToBounds = true
         
         self.containerView.addSubview(button)
-        button.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 0).isActive = true
-        button.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: 0).isActive = true
-        print(receivedView.frame)
     }
     
     
     
-}
-//
-//class ImageCell: UITableViewCell {
-//    
-//    override class func awakeFromNib() {
-//        super.awakeFromNib()
-//        
-//    }
-//}
-
-class DescriptionCell: UITableViewCell {
-    
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
 }
