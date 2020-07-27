@@ -12,13 +12,15 @@ class ViewControllerOne: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var imageVu: UIImageView!
-    var cell: TableViewCell!
+    var cell = CustomTableViewCell()
     var startFrame: CGRect = CGRect.zero
+    var contents = Content.all
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
     }
     
     @IBAction func goButton(_ sender: Any) {
@@ -27,9 +29,9 @@ class ViewControllerOne: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ViewControllerTwo,
-            let imgVu = sender as? UIImageView
+            let index = sender as? Int
         {
-            vc.image = imgVu.image
+            vc.index = index
             vc.transitioningDelegate = self
         } else {
             print("Fail")
@@ -41,28 +43,30 @@ class ViewControllerOne: UIViewController {
 
 extension ViewControllerOne: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return contents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as? TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell
+        cell?.contentImageView.image = contents[indexPath.row].image
+        cell?.smallImageView.image = contents[indexPath.row].image
+        cell?.titleLabel.text = " This is dummy title label for product being presented"
         self.imageVu = cell?.contentImageView
         return cell!
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.cell = tableView.cellForRow(at: indexPath) as? TableViewCell
-        self.startFrame = cell.convert(cell.contentImageView.frame, to: nil)
+        self.cell = tableView.cellForRow(at: indexPath) as! CustomTableViewCell
+        self.startFrame = cell.convert(cell.containerView.frame, to: nil)
+        
+//
+//        guard let vc = storyboard?.instantiateViewController(identifier: "ViewControllerTwo") as? ViewControllerTwo else {return}
+////        vc.image = contents[indexPath.row].image//cell.contentImageView.image
+////        vc.text = contents[indexPath.row].description
+////        print(contents[indexPath.row].description)
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        guard let vc = storyboard?.instantiateViewController(identifier: "ViewControllerTwo") as? ViewControllerTwo else {return}
-        vc.image = self.imageVu.image
-        
-        
-            self.performSegue(withIdentifier: "ShowDetails", sender: self.imageVu)
-        
-       
-        
+        self.performSegue(withIdentifier: "ShowDetails", sender: indexPath.row)
     }
     
 }
