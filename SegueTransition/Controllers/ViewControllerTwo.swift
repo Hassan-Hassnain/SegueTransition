@@ -12,11 +12,13 @@ class ViewControllerTwo: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var tableViewHeighConstaint: NSLayoutConstraint!
     
     var cell = CustomTableViewCell()
     var contents = Content.all
     var index: Int = 1
     var startFrame: CGRect = CGRect.zero
+    var tableFullHeight: CGFloat = 337.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +46,7 @@ class ViewControllerTwo: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as! CustomTableViewCell
-            cell.configure(content: contents[index])
+            cell.configure(content: contents[index],showImage: true)
             self.cell = cell
             updateView(cell)
             

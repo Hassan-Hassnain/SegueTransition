@@ -60,24 +60,16 @@ extension ViewControllerOne: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
-//MARK: - SCALE DELEGATE for segue
-extension ViewControllerOne: Scaleable {
-    var frame: CGRect {
-        imageVu.frame
-    }
-}
-
 //MARK: - TRANSITIONING DELEGATE
 
 extension ViewControllerOne: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return PresentAnimation(originFrame: startFrame, duration: 0.8, initialVelocity: 0.001, damping: 0.8)
+        return PresentAnimation(originFrame: startFrame, duration: 0.8, initialVelocity: 0.001, damping: 0.7)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return DismissAnimation(destinationFrame: startFrame, duration: 0.4, initialVelocity: 0.0001, damping: 0.9)
+        return DismissAnimation(destinationFrame: startFrame, duration: 0.5, initialVelocity: 0.0001, damping: 0.8)
     }
 }
 
