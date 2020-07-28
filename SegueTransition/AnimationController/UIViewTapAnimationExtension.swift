@@ -10,19 +10,21 @@ import UIKit
 
 public extension UIView {
     func showAnimation(_ completionBlock: @escaping () -> Void) {
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 0.2,
                        delay: 0,
                        options: .beginFromCurrentState,
                        animations: { [weak self] in
                         self?.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
+                        
         }){ _ in
+        self.transform = CGAffineTransform.init(scaleX: 1, y: 1)
             completionBlock()
-            UIView.animate(withDuration: 0.8,
-                           delay: 0,
-                           options: .curveLinear,
-                           animations: { [weak self] in
-                            self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-            })
+//            UIView.animate(withDuration: 0.0,
+//                           delay: 0,
+//                           options: .curveLinear,
+//                           animations: { [weak self] in
+//                            self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+//            })
         }
     }
     

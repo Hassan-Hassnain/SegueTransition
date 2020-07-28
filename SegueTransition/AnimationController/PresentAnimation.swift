@@ -8,16 +8,18 @@
 
 import UIKit
 
-let initialVelocity: CGFloat = 0.01
-let springDamping: CGFloat = 0.7
-let animationDuration = 1.0
-
 class PresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     
     private let originFrame: CGRect
+    private let initialVelocity: CGFloat
+    private let springDamping: CGFloat
+    private let animationDuration:Double
     
-    init(originFrame: CGRect) {
+    init(originFrame: CGRect, duration: Double, initialVelocity: CGFloat, damping: CGFloat) {
         self.originFrame = originFrame
+        self.animationDuration = duration
+        self.initialVelocity = initialVelocity
+        self.springDamping = damping
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -46,8 +48,8 @@ class PresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
             
             UIView.animate(withDuration: duration,   ///this animation will perform during transition to ViewControllerTwo
                 delay: 0.0,
-                usingSpringWithDamping: springDamping,
-                initialSpringVelocity: initialVelocity,
+                usingSpringWithDamping: self.springDamping,
+                initialSpringVelocity: self.initialVelocity,
                 options: .curveEaseInOut,
                 animations: {
                     snapshotView.frame = finalFrame

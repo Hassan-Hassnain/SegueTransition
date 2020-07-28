@@ -9,10 +9,17 @@
 import UIKit
 
 class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
-    private let destinationFrame: CGRect
     
-    init(destinationFrame: CGRect) {
+    private let destinationFrame: CGRect
+    private let initialVelocity: CGFloat
+    private let springDamping: CGFloat
+    private let animationDuration:Double
+    
+    init(destinationFrame: CGRect, duration: Double, initialVelocity: CGFloat, damping: CGFloat) {
         self.destinationFrame = destinationFrame
+        self.animationDuration = duration
+        self.initialVelocity = initialVelocity
+        self.springDamping = damping
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -27,7 +34,7 @@ class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
                 return
         }
         
-        snapshotView.frame = fromVC.startFrame
+        snapshotView.frame = fromVC.view.frame// fromVC.startFrame
         print(snapshotView.frame)
         snapshotView.layer.cornerRadius = 30
         snapshotView.layer.masksToBounds = true
@@ -39,11 +46,11 @@ class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         toVC.cell.isHidden = true
         toVC.view.isHidden = false
         
-        let duration = transitionDuration(using: transitionContext)
+        let duration = self.transitionDuration(using: transitionContext)
         UIView.animate(withDuration: duration,
                        delay: 0.0,
-                       usingSpringWithDamping: springDamping,
-                       initialSpringVelocity: initialVelocity,
+                       usingSpringWithDamping: self.springDamping,
+                       initialSpringVelocity: self.initialVelocity,
                        options: .curveEaseOut,
                        animations: {
                         snapshotView.frame = self.destinationFrame
@@ -59,7 +66,10 @@ class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         }
     }
     
+    
 }
+
+
 
 
 

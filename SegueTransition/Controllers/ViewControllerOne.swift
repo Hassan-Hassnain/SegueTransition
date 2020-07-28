@@ -46,7 +46,7 @@ extension ViewControllerOne: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell
         cell?.contentImageView.image = contents[indexPath.row].image
         cell?.smallImageView.image = contents[indexPath.row].image
-        cell?.titleLabel.text = " This is dummy title label for product being presented"
+        cell?.titleLabel.text = " This is dummy title label for product being presented in showcase"
         self.imageVu = cell?.contentImageView
         return cell!
     }
@@ -73,11 +73,11 @@ extension ViewControllerOne: Scaleable {
 extension ViewControllerOne: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return PresentAnimation(originFrame: startFrame)
+        return PresentAnimation(originFrame: startFrame, duration: 0.8, initialVelocity: 0.001, damping: 0.8)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return DismissAnimation(destinationFrame: startFrame)
+        return DismissAnimation(destinationFrame: startFrame, duration: 0.4, initialVelocity: 0.0001, damping: 0.9)
     }
 }
 
